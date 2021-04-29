@@ -24,9 +24,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <engine name="android" spec="~7.1.4" />
     <plugin name="cordova-plugin-whitelist" />
     <plugin name="cordova-plugin-console" spec="~1.1.0" />
     <plugin name="nodejs-mobile-cordova" spec="~0.4.2" />
     <plugin name="cordova-plugin-file" spec="^6.0.2" />
+    <engine name="android" spec="~7.1.4" />
 </widget>
