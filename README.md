@@ -11,7 +11,7 @@ https://solidproject.org/
 The following package is used to be able to run a node server on mobile:
 https://github.com/JaneaSystems/nodejs-mobile-cordova
 
-The following packe is the node-solid-server:
+The following package is the node-solid-server:
 https://github.com/solid/node-solid-server
 
 ---
@@ -80,7 +80,8 @@ Search for jniLibs using `ctrl + shift + F` and comment the following lines: <br
 
 After that you can run the app. If your device doesn't load, try `file -> Invalidate Caches / Restart` or reconnecting. 
 
-See issues for the error I'm currently stuck with.
+See [issues](https://github.com/wkokgit/Node-Solid-Server-on-mobile-using-Cordova/issues) for the error I'm currently stuck with.
+
 ---
 
 ## General information
