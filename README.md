@@ -15,7 +15,9 @@ https://github.com/solid/node-solid-server
 ---
 
 ## How to run
-Add the android platform.
+Run `npm install` in www\nodejs-project
+
+Add the android platform:
 
 ```bash
 $ cordova platform add android@7.1.4
@@ -23,7 +25,7 @@ $ cordova platform add android@7.1.4
 
 > If you encounter `unable to load PlatformApi`, see Common errors.
 
-Open platforms/android project in Android Studio
+Open `platforms/android project` in Android Studio
 
 in app\build.gradle
 - change cdvPrintProps << { to cdvPrintPros { doLast { (add } to the end)
@@ -42,10 +44,10 @@ change in android\build.gradle :
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:4.0.0'
     }
-	
-If you get an error about gradle version 6.1.1, 
+
+
 
 ---
 
@@ -79,15 +81,20 @@ System variables:
 
 ## Common errors
 
-If one of the cordova plugins is not found, for example "nodejs module is not found", then try to
+> If one of the cordova plugins is not found, for example "nodejs module is not found", then try to
 re-install all plugins.
 
+> If one of the node-js modules is not found, do `npm install` in www\nodejs-project.
 
+> When there is an error about the NDK version being non-existent download the one needed in Android Studio -> SDK manager -> SDK Tools -> make sure you click `show packages` -> NDK (Side by side)
 
-when trying to add platform android :
+> when trying to add platform android :
 Unable to load PlatformApi from platform. Error [ERR_UNHANDLED_ERROR]: Unhandled error. (Does not appear to implement platform Api.)
 Use this: https://stackoverflow.com/questions/46799446/cordova-unable-to-load-platformapi
 
+> For `More than one file was found with OS independent path 'lib/arm64-v8a/libnode.so'.`, search for jniLibs using `ctrl + shift + F` and comment the following lines: <br />
+`android.sourceSets.main.jniLibs.srcDirs += 'libs/cdvnodejsmobile/libnode/bin/';` <br />
+`jniLibs.srcDirs = ['libs']`
 
 ---
 
