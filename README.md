@@ -1,7 +1,9 @@
 # Node-Solid-Server-on-mobile-using-Cordova
 This is an experimental repository. The idea is to run the Node-Solid-Server on mobile. I found a repository that allows nodejs to be run on mobile using Cordova and build upon that, but there are some things that need to be fixed in order to make it work. One of them is the compatibilty of using the Android file system with the Node-Solid-Server.
 
-_This is not working, but offers an experiment to run Node-Solid-Server._
+![Cordova structure](Cordova_structure_4-26-2021.png "simple structure")
+
+_This is not working, but offers an experiment to work further on and helpful information._
 
 For more information on Solid:
 https://solidproject.org/
@@ -31,16 +33,16 @@ in app\build.gradle
 - change cdvPrintProps << { to cdvPrintPros { doLast { (add } to the end)
 
 change in android\build.gradle :
-    dependencies {
-
+    
+	dependencies {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.android.tools.build:gradle:3.0.1'
     }
 	
-	to
+to
 	
-	    dependencies {
+dependencies {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -88,17 +90,17 @@ re-install all plugins.
 
 > When there is an error about the NDK version being non-existent download the one needed in Android Studio -> SDK manager -> SDK Tools -> make sure you click `show packages` -> NDK (Side by side)
 
-> when trying to add platform android :
+> When trying to add platform android :
 Unable to load PlatformApi from platform. Error [ERR_UNHANDLED_ERROR]: Unhandled error. (Does not appear to implement platform Api.)
 Use this: https://stackoverflow.com/questions/46799446/cordova-unable-to-load-platformapi
 
-> For `More than one file was found with OS independent path 'lib/arm64-v8a/libnode.so'.`, search for jniLibs using `ctrl + shift + F` and comment the following lines: <br />
+> For the error: `More than one file was found with OS independent path 'lib/arm64-v8a/libnode.so'.`, search for jniLibs using `ctrl + shift + F` and comment the following lines: <br />
 `android.sourceSets.main.jniLibs.srcDirs += 'libs/cdvnodejsmobile/libnode/bin/';` <br />
 `jniLibs.srcDirs = ['libs']`
 
 ---
 
-## Helpful for the future:
+## Helpful for the future
 
 Writing to files in cordova
 https://stackoverflow.com/questions/34694139/where-is-the-location-of-file-created-by-cordova-file-plugin
