@@ -1,4 +1,4 @@
-# Node-Solid-Server-on-mobile-using-Cordova
+# Node Solid Server on mobile using Cordova
 This is an experimental repository. The idea is to run the Node-Solid-Server on mobile. I found a repository that allows nodejs to be run on mobile using Cordova and build upon that, but there are some things that need to be fixed in order to make it work. One of them is the compatibilty of using the Android file system with the Node-Solid-Server.
 
 ![Cordova structure](Cordova_structure_4-26-2021.png "simple structure")
@@ -17,23 +17,42 @@ https://github.com/solid/node-solid-server
 ---
 
 ## How to run
-Run `npm install` in www\nodejs-project
+In `www\nodejs-project` run:
+
+```bash
+npm install
+```
 
 Add the android platform in the root folder:
 
 ```bash
+$ cordova plugin add nodejs-mobile-cordova
+$ cordova plugin add cordova-plugin-console
 $ cordova platform add android@7.1.4
 ```
 
-> If you encounter `unable to load PlatformApi`, see Common errors.
+> If you encounter `unable to load PlatformApi`, see https://stackoverflow.com/questions/46799446/cordova-unable-to-load-platformapi
 
 <br />
 
-Open `platforms/android project` in Android Studio
+Now open `platforms/android project` in Android Studio
 
-In `app\build.gradle` change `cdvPrintProps << {` to `cdvPrintPros { doLast {` (add closing } at the end)
+In `app\build.gradle` change: 
 
-change in android\build.gradle :
+	cdvPrintProps << { 
+	...
+	}
+	
+to 
+
+	cdvPrintPros { doLast {
+		...
+		}
+	}
+
+
+
+In android\build.gradle change:
     
 	dependencies {
         // NOTE: Do not place your application dependencies here; they belong
@@ -89,10 +108,6 @@ re-install all plugins.
 > If one of the node-js modules is not found, do `npm install` in www\nodejs-project.
 
 > When there is an error about the NDK version being non-existent download the one needed in Android Studio -> SDK manager -> SDK Tools -> make sure you click `show packages` -> NDK (Side by side)
-
-> When trying to add platform android :
-Unable to load PlatformApi from platform. Error [ERR_UNHANDLED_ERROR]: Unhandled error. (Does not appear to implement platform Api.)
-Use this: https://stackoverflow.com/questions/46799446/cordova-unable-to-load-platformapi
 
 > For the error: `More than one file was found with OS independent path 'lib/arm64-v8a/libnode.so'.`, search for jniLibs using `ctrl + shift + F` and comment the following lines: <br />
 `android.sourceSets.main.jniLibs.srcDirs += 'libs/cdvnodejsmobile/libnode/bin/';` <br />
