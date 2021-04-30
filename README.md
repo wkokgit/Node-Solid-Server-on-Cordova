@@ -19,7 +19,7 @@ https://github.com/solid/node-solid-server
 ## How to run
 Run `npm install` in www\nodejs-project
 
-Add the android platform:
+Add the android platform in the root folder:
 
 ```bash
 $ cordova platform add android@7.1.4
@@ -29,8 +29,7 @@ $ cordova platform add android@7.1.4
 
 Open `platforms/android project` in Android Studio
 
-in app\build.gradle
-- change cdvPrintProps << { to cdvPrintPros { doLast { (add } to the end)
+in `app\build.gradle` change `cdvPrintProps << {` to `cdvPrintPros { doLast {` (add closing } at the end)
 
 change in android\build.gradle :
     
@@ -42,8 +41,7 @@ change in android\build.gradle :
 	
 to
 	
-dependencies {
-
+	dependencies {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.android.tools.build:gradle:4.0.0'
