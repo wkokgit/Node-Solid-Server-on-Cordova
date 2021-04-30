@@ -35,24 +35,25 @@ $ cordova platform add android@7.1.4
 
 <br />
 
-Now open `platforms/android project` in Android Studio
+Now open `platforms/android` as a project in Android Studio
 
 In `app\build.gradle` change: 
 
-	cdvPrintProps << { 
+	task cdvPrintProps << { 
 	...
 	}
 	
-to 
+_to_ 
 
-	cdvPrintPros { doLast {
-		...
+	task cdvPrintPros { 
+		doLast {
+			...
 		}
 	}
 
 
 
-In android\build.gradle change:
+In `android\build.gradle` change:
     
 	dependencies {
         // NOTE: Do not place your application dependencies here; they belong
@@ -60,7 +61,7 @@ In android\build.gradle change:
         classpath 'com.android.tools.build:gradle:3.0.1'
     }
 	
-to
+_to_
 	
 	dependencies {
         // NOTE: Do not place your application dependencies here; they belong
@@ -68,8 +69,18 @@ to
         classpath 'com.android.tools.build:gradle:4.0.0'
     }
 
+Now you should be able to sync gradle, if not see *Common Errors* below.
 
+Search for jniLibs using `ctrl + shift + F` and comment the following lines: <br />
 
+```bash 
+// android.sourceSets.main.jniLibs.srcDirs += 'libs/cdvnodejsmobile/libnode/bin/';` <br />
+// jniLibs.srcDirs = ['libs']
+```
+
+After that you can run the app. If your device doesn't load, try `file -> Invalidate Caches / Restart` or reconnecting. 
+
+See issues for the error I'm currently stuck with.
 ---
 
 ## General information
