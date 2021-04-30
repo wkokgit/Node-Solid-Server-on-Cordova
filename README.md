@@ -27,9 +27,11 @@ $ cordova platform add android@7.1.4
 
 > If you encounter `unable to load PlatformApi`, see Common errors.
 
+<br />
+
 Open `platforms/android project` in Android Studio
 
-in `app\build.gradle` change `cdvPrintProps << {` to `cdvPrintPros { doLast {` (add closing } at the end)
+In `app\build.gradle` change `cdvPrintProps << {` to `cdvPrintPros { doLast {` (add closing } at the end)
 
 change in android\build.gradle :
     
